@@ -1,8 +1,8 @@
-function Chain(_x, _y){
+function Chain(_x, _y, _yScale){
 
 	this.NUM = 8;
-	this.minSize = random(18, 24);
-	this.maxSize = random(24, 28);	
+	this.minSize = _yScale * random(28, 32);
+	this.maxSize = _yScale * random(36, 42);	
 
 	this.joints = [];
 
@@ -20,6 +20,7 @@ function Chain(_x, _y){
   		var rad = random(this.minSize, this.maxSize);
   	
   		var ang = radians((i*5) + random(-90, 90));
+  		//ang = radians(i*8.5);
   		
   		var x = 0;//joints[i-1].x + (cos(ang) * (joints[i-1].rad + rad));
   		var y = 0;//joints[i-1].y + (sin(ang) * (joints[i-1].rad + rad));
