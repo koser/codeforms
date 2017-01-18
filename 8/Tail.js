@@ -1,12 +1,12 @@
 function Tail(pos){
 
 	this.pos = pos;
-	this.num = 20;
+	this.num = 150;
 	this.hist = [];
 	this.weight = 5;//random(0.2, 3.0);
 
 	this.init = function(){
-		this.num = Math.round(random(15, 200));
+		// this.num = Math.round(random(15, 200));
 		this.hist = [];
 		for(var i=this.num-1; i>=0; i--){
 			var p = new Point(this.pos.x, this.pos.y);

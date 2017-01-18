@@ -1,8 +1,9 @@
 function Tentacle(){
 	this.ang = radians(random(360));
-	this.rad = random(2, 20);
+	this.rad = 50;//random(2, 20);
+	this.baseRad = this.rad/2;
 	this.tail = new Tail(0, 0);
-	this.angChange = random(-0.1, 0.1);
+	this.angChange = random(0.02, 0.05);
 	this.count = 0;
 
 	this.update = function(baseX, baseY){
@@ -10,17 +11,18 @@ function Tentacle(){
 		this.ang += this.angChange;
 
 		this.count++;
-		var tmprad = atan(count) * this.rad;
+		// var tmprad = atan(count) * this.rad;
+		var animrad = this.rad + (sin(count) * this.baseRad);
 
-		tmprad = 80;
+		// tmprad = 80;
 
-		var x = cos(this.ang) * tmprad;
-		var y = sin(this.ang) * tmprad;
+		var x = cos(this.ang) * animrad;
+		var y = sin(this.ang) * animrad;
 
 		// tentacle moving logic visualised
 		strokeWeight(0.5);
 		noFill();
-		ellipse(baseX, baseY, tmprad*2, tmprad*2);
+		ellipse(baseX, baseY, animrad*2, animrad*2);
 
 		fill(96);
 		ellipse(baseX, baseY, 6, 6);
